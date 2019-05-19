@@ -68,5 +68,15 @@ namespace SecurityLock.Properties {
                 return ResourceManager.GetStream("Alarm", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        internal static System.Drawing.Icon lockIcon {
+            get {
+                object obj = ResourceManager.GetObject("lockIcon", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
     }
 }

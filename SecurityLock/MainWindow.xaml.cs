@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Forms;
 using System.IO;
+using AudioSwitcher.AudioApi.CoreAudio;
 
 namespace SecurityLock
 {
@@ -18,6 +19,25 @@ namespace SecurityLock
         {
             InitializeComponent();
             InitialStart();
+
+            NotifyIcon ni = new NotifyIcon();
+            ni.Icon = Properties.Resources.lockIcon;
+            ni.Visible = true;
+            ni.DoubleClick +=
+                delegate (object sender, EventArgs args)
+                {
+                    Show();
+                    WindowState = WindowState.Normal;
+                };
+
+        }
+
+        protected override void OnStateChanged(EventArgs e)
+        {
+            if (WindowState == WindowState.Minimized)
+                Hide();
+
+            base.OnStateChanged(e);
         }
 
         private async void InitialStart()
@@ -86,9 +106,11 @@ namespace SecurityLock
             {
                 if (_armed && _isRunningOnBattery)
                 {
+                    CoreAudioDevice defaultPlaybackDevice = new CoreAudioController().DefaultPlaybackDevice;
+                    defaultPlaybackDevice.Volume = 100;
                     Stream alarmStream = Properties.Resources.Alarm;
                     System.Media.SoundPlayer alarmRecording = new System.Media.SoundPlayer(alarmStream);
-                    this.Dispatcher.Invoke(() =>
+                    Dispatcher.Invoke(() =>
                     {
                         if (_armed)
                         {
@@ -111,6 +133,7 @@ namespace SecurityLock
                     alarmRecording.Stop();
                     alarmRecording.Dispose();
                     alarmStream.Dispose();
+                    defaultPlaybackDevice.Dispose();
                 }
                 System.Threading.Thread.Sleep(500);
             }

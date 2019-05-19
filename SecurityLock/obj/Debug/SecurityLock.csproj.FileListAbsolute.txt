@@ -12,3 +12,7 @@ C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\obj\Debug\Security
 C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\obj\Debug\SecurityLock.csproj.CoreCompileInputs.cache
 C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\obj\Debug\SecurityLock.exe
 C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\obj\Debug\SecurityLock.pdb
+C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\bin\Debug\AudioSwitcher.AudioApi.CoreAudio.dll
+C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\bin\Debug\AudioSwitcher.AudioApi.dll
+C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\obj\Debug\SecurityLock.csprojAssemblyReference.cache
+C:\Users\andre\Desktop\Repositories\SecurityLock\SecurityLock\obj\Debug\SecurityLock.csproj.CopyComplete
